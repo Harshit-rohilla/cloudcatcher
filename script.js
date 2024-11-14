@@ -25,6 +25,7 @@ navigator.permissions.query({name:'geolocation'})
 .then((result)=>{
     if(result.state==='granted'){
         loading.classList.add('active-box');
+        
         getLocation();
     }
     else if(result.state==='prompt'){
@@ -35,7 +36,9 @@ navigator.permissions.query({name:'geolocation'})
     }
     else if(result.state==='denied'){
         grantLocationAccess.classList.add('active-box');
-        
+        grantLocationAccess.addEventListener('click', function(){
+            getLocation();
+        })
         errorBox.classList.add('active-box');
         errorType.innerText='Permission denied for location access.';
     }
@@ -103,11 +106,12 @@ function switchTab(clickedTab){
 function getLocation(){
     if(navigator.geolocation){
         //grant permission dialog box timing
-        loading.classList.remove('active-box');
+        
         navigator.geolocation.getCurrentPosition(savePosition, showError);
         // grantLocationAccess.classList.add('active-box');
     }
     else{
+        grantLocationAccess.classList.remove('active-box');
         loading.classList.remove('active-box');
         errorBox.classList.add('active-box');
         errorType.innerText='Your browser does not support the Geolocation API.'
@@ -120,11 +124,11 @@ function showError(){
     
 };
 function savePosition(position){
-    // loading.classList.add('active-box');
     grantLocationAccess.classList.remove('active-box');
+    loading.classList.add('active-box');
     localStorage.setItem('latitude', position.coords.latitude);
     localStorage.setItem('longitude', position.coords.longitude);
-    yourWeather.classList.add('active-box');
+    
     showPosition();
 };
 function showPosition(){
@@ -137,6 +141,7 @@ function showPosition(){
     })
     .then((data)=>{
         loading.classList.remove('active-box');
+        yourWeather.classList.add('active-box');
         errorBox.classList.remove('active-box');
         cityName.innerText=`${(data.name).charAt(0).toUpperCase()+(data.name).slice(1)}`;
         weatherType.innerText=`${(data.weather[0].description).charAt(0).toUpperCase()+(data.weather[0].description).slice(1)}`;
