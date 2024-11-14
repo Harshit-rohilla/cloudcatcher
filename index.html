@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WEATHER</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="Images/fevicon.svg" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="wrapper">
+        <!-- main heading box -->
+        <h1 class="main-heading">WEATHER APP</h1>
+
+        <!-- your weather and search weather tabs box -->
+        <div class="tabs">
+            <div class="your-weather">Your Weather</div>
+            <div class="search-weather">Search Weather</div>
+        </div>
+
+        <!-- grant location box -->
+        <div class="grantlocationaccess-box">
+            <img src="Images/location.png" alt="location-img" loading="lazy" height="80" width="80">
+            <h1 class="grantlocationaccessh1">Grant Location Access</h1>
+            <h1 class="grantlocationaccessh2">Allow Access To Get Weather Information</h1>
+            <div class="grantaccessbtn">GRANT ACCESS</div>
+        </div>
+
+        <!-- search-box -->
+         <div class="search-box">
+            <form class="searchform">
+                <input type="text" class="search-field" placeholder="search for city...">
+                <button type="submit" class="search-icon-box"><img src="Images/search.png" alt="search-icon" loading="lazy" height="15px" width="15px" class="search-icon-img"></button>
+            </form>
+         </div>
+
+
+        <!-- your weather box -->
+        <div class="yourweather-box">
+        <div class="citybox"><span class="cityname">Goa</span></div>
+        <div class="weather-type">Haze</div>
+        <img src="Images/haze.png" alt="weather-img" class="weathertypeimg" loading="lazy" height="50px" width="60px">
+        <div class="temp">25.08</div>
+        <div class="weather-attribute">
+            <div class="windspeed same">
+                <img src="Images/wind.png" alt="wind-img"  loading="lazy" height="50px" width="50px ">
+                <div class="windspeed-title">WINDSPEED</div>
+                <div class="windspeed-value">1.54m/s</div>
+            </div>
+            <div class="humidity same">
+                <img src="Images/humidity.png" alt="humidity-img" loading="lazy" height="50px" width="50px">
+                <div class="humidity-title">HUMIDITY</div>
+                <div class="humidity-value">53%</div>
+            </div>
+            <div class="clouds same">
+                <img src="Images/cloud.png" alt="cloud-img" loading="lazy" height="50px" width="50px">
+                <div class="cloud-title">CLOUDS</div>
+                <div class="cloud-value">0%</div>
+            </div>
+        </div>
+        </div>
+
+        <!-- loading box -->
+         <div class="loading-box">
+            <img src="Images/loading.gif" alt="loader" loading="lazy" height="150px" width="150px">
+            <!-- <div class="loading-heading">loading</div> -->
+         </div>
+
+         <!-- Error box -->
+         <div class="errorbox">
+            <div class="errortype"></div>
+         </div>
+        
+    </div>
+</body>
+<script src="script.js"></script>
+</html>
